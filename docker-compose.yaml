@@ -1,0 +1,29 @@
+version: '3'
+services: 
+  app:
+    container_name: app
+    restart: always
+    image: cyber2024/demo-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+    networks:
+      - dbnet
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports: 
+      - "27017:27017"
+    networks:
+      - dbnet
+    restart: always
+    volumes:
+      - mongodb_data:/data/db
+networks:
+  dbnet:
+    driver: bridge
+volumes:
+  mongodb_data:
+    driver: local
+    
