@@ -33,6 +33,9 @@ app.use('/', express.static(__dirname+'/../public'));
 app.get('/', function(req,res){
     res.sendFile(__dirname + '/../public/index.html');
 })
+app.get('/health', function(req,res){
+    res.sendStatus(200);
+})
 app.get('/endpoints', function(req,res){
     if(mongoose.connection.readyState == 1){
         Endpoint.find()
