@@ -35,7 +35,7 @@ app.get('/', function(req,res){
 })
 app.get('/health', function(req,res){
     res.sendStatus(200);
-})
+});
 app.get('/endpoints', function(req,res){
     if(mongoose.connection.readyState == 1){
         Endpoint.find()

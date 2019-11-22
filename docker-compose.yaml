@@ -3,7 +3,7 @@ services:
   app:
     container_name: app
     restart: always
-    image: cyber2024/demo-api
+    image: cyber2024/demo-api:v1.02
     ports:
       - "8080:8080"
     depends_on:
